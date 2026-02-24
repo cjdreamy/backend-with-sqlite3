@@ -12,8 +12,14 @@ db.run(`
     userID INTEGER PRIMARY KEY AUTOINCREMENT,
     userName TEXT NOT NULL,
     email TEXT NOT NULL,
-    passWord TEXT NOT NULL)`
+    passWord TEXT NOT NULL);`
 )
+
+//INSERTING VLUES TO USERS TABLE
+db.run(`
+    INSERT INTO users(userName, email, passWord)
+    VALUES(?, ?, ?);
+    `)
 
 db.close((err) => {
     if(err){
