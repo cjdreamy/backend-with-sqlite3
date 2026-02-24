@@ -11,6 +11,13 @@ app.get('/', (req, res) => {
     res.send("app online")
 })
 
+app.get('/api', (req, res) =>{
+
+})
+app.get(/api, (req, res) =>{})
+app.post(/api, (req, res) =>{})
+app.delete(/api, (req, res) =>{})
+
 
 
 
