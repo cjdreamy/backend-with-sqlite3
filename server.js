@@ -1,5 +1,5 @@
-const sqlite3 = reqiure('sqlite3');
-const db = new qlite3.Database('./myuser.db', (err) =>{
+const sqlite3 = require('sqlite3');
+const db = new sqlite3.Database('./myusers.db', (err) =>{
     if(err){
         return console.log(err)
     }
