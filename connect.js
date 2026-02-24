@@ -1,10 +1,13 @@
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./myusers.db', (err) =>{
+const db = new sqlite3.Database('./myusers.db', connected);
+
+//checking connection
+function connected(err) {
     if(err){
         return console.log(err)
     }
     console.log("connection etablished successfully")
-});
+}
 
 const userName = "CJ"
 const email = "cj@cj.dev"
@@ -39,4 +42,4 @@ db.close((err) => {
 
 
 
- 
+ export default db;
