@@ -16,12 +16,10 @@ db.run(`
     userID INTEGER PRIMARY KEY AUTOINCREMENT,
     userName TEXT NOT NULL,
     email TEXT NOT NULL,
-    passWord TEXT NOT NULL);`
-)
-
-//INSERTING VLUES TO USERS TABLE
-
-    query = `INSERT INTO users(userName, email, passWord) VALUES(?, ?, ?);`
+    passWord TEXT NOT NULL);`,
+    (error) => {
+        //INSERTING VLUES TO USERS TABLE
+           query = `INSERT INTO users(userName, email, passWord) VALUES(?, ?, ?);`
     values = [`${userName}, ${email}, ${passWord}`]
     db.run(query, values, (err) => {
         if(err){
@@ -36,3 +34,9 @@ db.close((err) => {
     }
     console.log("connection closed successfully")
 });
+    }
+)
+
+
+
+ 
