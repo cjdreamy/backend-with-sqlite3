@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js "
   },
   "repository": {
     "type": "git",
@@ -17,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/cjdreamy/backend-with-sqlite3/issues"
   },
-  "homepage": "https://github.com/cjdreamy/backend-with-sqlite3#readme"
+  "homepage": "https://github.com/cjdreamy/backend-with-sqlite3#readme",
+  "dependencies": {
+    "nodemon": "^3.1.14",
+    "sqlite3": "^5.1.7"
+  }
 }
