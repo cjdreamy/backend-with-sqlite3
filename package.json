@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/cjdreamy/backend-with-sqlite3#readme",
   "dependencies": {
+    "ejs": "^4.0.1",
     "express": "^5.2.1",
     "nodemon": "^3.1.14",
     "sqlite3": "^5.1.7"
