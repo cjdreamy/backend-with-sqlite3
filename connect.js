@@ -1,45 +1,29 @@
 import sqlite3 from 'sqlite3';
-const db = new sqlite3.Database('./myusers.db', connected);
 
-//checking connection
-function connected(err) {
-    if(err){
-        return console.log(err)
+const db = new sqlite3.Database('./myusers.db', (err) => {
+    if (err) {
+        return console.error('DB Connection Error:', err.message);
     }
-    console.log("connection etablished successfully")
+    console.log('Connected to SQLite3 database.');
+    initDB();
+});
+
+function initDB() {
+    db.run(
+        `CREATE TABLE IF NOT EXISTS users (
+      userID    INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_name TEXT    NOT NULL,
+      email     TEXT    NOT NULL,
+      pass_word TEXT    NOT NULL
+    )`,
+        (err) => {
+            if (err) {
+                console.error('Error creating users table:', err.message);
+            } else {
+                console.log('Users table ready.');
+            }
+        }
+    );
 }
 
-const userName = "CJ"
-const email = "cj@cj.dev"
-const passWord = "1234Qwerty"
-
-//CREATING USERTABLE
-db.run(`
-    CREATE TABLE IF NOT EXISTS users(
-    userID INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_name TEXT NOT NULL,
-    email TEXT NOT NULL,
-    pass_word TEXT NOT NULL);`,
-    (error) => {
-        //INSERTING VLUES TO USERS TABLE
-           query = `INSERT INTO users(user_name, email, pass_word) VALUES(?,?,?);`
-    values = [`${userName}, ${email}, ${passWord}`]
-    db.run(query, values, (err) => {
-        if(err){
-            return console.log(err)
-        }
-        console.log("user added successfully")
-    })
-
-db.close((err) => {
-    if(err){
-        return console.log(err)
-    }
-    console.log("connection closed successfully")
-});
-    }
-)
-
-
-
- export default db;
+export default db;
