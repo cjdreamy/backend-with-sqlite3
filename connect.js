@@ -17,12 +17,12 @@ const passWord = "1234Qwerty"
 db.run(`
     CREATE TABLE IF NOT EXISTS users(
     userID INTEGER PRIMARY KEY AUTOINCREMENT,
-    userName TEXT NOT NULL,
+    user_name TEXT NOT NULL,
     email TEXT NOT NULL,
-    passWord TEXT NOT NULL);`,
+    pass_word TEXT NOT NULL);`,
     (error) => {
         //INSERTING VLUES TO USERS TABLE
-           query = `INSERT INTO users(userName, email, passWord) VALUES(?, ?, ?);`
+           query = `INSERT INTO users(user_name, email, pass_word) VALUES(?, ?, ?);`
     values = [`${userName}, ${email}, ${passWord}`]
     db.run(query, values, (err) => {
         if(err){
